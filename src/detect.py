@@ -189,12 +189,19 @@ class Yolov5Detector:
 
         return img, img0 
 
-
-if __name__ == "__main__":
-
-    check_requirements(exclude=("tensorboard", "thop"))
+def main():
+    """Main routine to run Yolo"""
     
+    check_requirements(exclude=("tensorboard", "thop", "PyYAML"))
+    
+    # Initialize ROS node
     rospy.init_node("yolov5", anonymous=True)
-    detector = Yolov5Detector()
+    Yolov5Detector()
     
-    rospy.spin()
+    try:
+        rospy.spin()
+    except rospy.ROSInterruptException:
+        pass
+    
+if __name__ == "__main__":
+    main()
