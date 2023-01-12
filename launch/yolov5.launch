@@ -11,12 +11,12 @@
     <arg name="dnn"                   default="true"/>
     <arg name="half"                  default="false"/>
     
-    <!-- replace imgsz -->
+    <arg name="config"       default="$(find yolov5_ros)/config/yolo.yaml" doc="Path to parameter config file"/>
     <arg name="inference_size_h"      default="640"/>
     <arg name="inference_size_w"      default="640"/>
     
     <!-- Visualize using OpenCV window -->
-    <arg name="view_image"            default="true"/>
+        <rosparam file="$(arg config)"/>
 
     <!-- ROS topics -->
     <arg name="input_image_topic"       default="/camera/color/image_raw/compressed"/>

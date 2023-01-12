@@ -1,0 +1,24 @@
+# Detection configuration
+weights:               "yolov5m.pt"
+data:                  "/workspace/yolow_ws/src/yolov5_ros/src/yolov5/data/coco128.yaml"
+confidence_threshold:  0.75
+iou_threshold:         0.45
+maximum_detections:    1000
+device:                0
+agnostic_nms:          True
+line_thickness:        3
+dnn:                   True
+half:                  False
+
+# replace imgsz
+inference_size_h:      640
+inference_size_w:      640
+
+# Visualize using OpenCV window
+view_image:            False
+
+# Optional topic (publishing annotated image)
+publish_image:         True
+
+# ROS topics
+topic_publishing:      "yolov5"
