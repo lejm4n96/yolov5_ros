@@ -1,6 +1,6 @@
 # Detection configuration
 weights:               "yolov5m.pt"
-data:                  "/workspace/yolow_ws/src/yolov5_ros/src/yolov5/data/coco128.yaml"
+data:                  "/workspace/yolo_ws/src/yolov5_ros/src/yolov5/data/coco128.yaml"
 confidence_threshold:  0.75
 iou_threshold:         0.45
 maximum_detections:    1000
