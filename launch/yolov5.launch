@@ -1,26 +1,13 @@
 <launch>
-    <!-- Detection configuration -->
-    <arg name="weights"               default="yolov5m.pt"/>
-    <arg name="data"                  default="$(find yolov5_ros)/src/yolov5/data/coco128.yaml"/>
-    <arg name="confidence_threshold"  default="0.75"/>
-    <arg name="iou_threshold"         default="0.45"/>
-    <arg name="maximum_detections"    default="1000"/>
-    <arg name="device"                default="0"/>
-    <arg name="agnostic_nms"          default="true"/>
-    <arg name="line_thickness"        default="3"/>
-    <arg name="dnn"                   default="true"/>
-    <arg name="half"                  default="false"/>
-    
+
     <arg name="config"       default="$(find yolov5_ros)/config/yolo.yaml" doc="Path to parameter config file"/>
     <arg name="topic_camera" default="/camera/color/image_raw/compressed"/>
     <arg name="ns"           default="yolo" />
-    
+
     <node pkg="yolov5_ros" name="detect" type="detect.py" output="screen" clear_params="true" ns="$(arg ns)">
         <rosparam file="$(arg config)"/>
-
+        
         <param name="input_image_topic"  value="/$(arg ns)/$(arg topic_camera)"/>
     </node>
     <!-- <include file="$(find camera_launch)/launch/d435.launch"/> -->
-
-
 </launch>
