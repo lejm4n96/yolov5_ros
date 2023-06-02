@@ -10,6 +10,7 @@ from pathlib import Path
 import os
 import sys
 from rostopic import get_topic_type
+import resource_retriever
 
 from sensor_msgs.msg import Image, CompressedImage
 from detection_msgs.msg import BoundingBox, BoundingBoxes
@@ -46,10 +47,10 @@ class Yolov5Detector:
         self.line_thickness = rospy.get_param("~line_thickness")
         self.view_image = rospy.get_param("~view_image")
         # Initialize weights 
-        weights = rospy.get_param("~weights")
+        weights = resource_retriever.get_filename(rospy.get_param('~weights'), use_protocol=False)
         # Initialize model
         self.device = select_device(str(rospy.get_param("~device","")))
-        self.model = DetectMultiBackend(weights, device=self.device, dnn=rospy.get_param("~dnn"), data=rospy.get_param("~data"))
+        self.model = DetectMultiBackend(weights, device=self.device, dnn=rospy.get_param("~dnn"), data=resource_retriever.get_filename(rospy.get_param('~data'), use_protocol=False))
         self.stride, self.names, self.pt, self.jit, self.onnx, self.engine = (
             self.model.stride,
             self.model.names,
