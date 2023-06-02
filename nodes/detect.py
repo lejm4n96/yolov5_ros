@@ -18,7 +18,7 @@ from detection_msgs.msg import BoundingBox, BoundingBoxes
 
 # add yolov5 submodule to path
 FILE = Path(__file__).resolve()
-ROOT = FILE.parents[0] / "yolov5"
+ROOT = FILE.parents[1] / "src" / "yolov5"
 if str(ROOT) not in sys.path:
     sys.path.append(str(ROOT))  # add ROOT to PATH
 ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative path
