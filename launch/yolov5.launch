@@ -1,8 +1,8 @@
 <launch>
 
     <arg name="config"       default="$(find yolov5_ros)/config/yolo.yaml" doc="Path to parameter config file"/>
-    <arg name="topic_camera" default="/camera/color/image_raw/compressed"/>
-    <arg name="ns"           default="yolo" />
+    <arg name="topic_camera" default="color/image_raw"/>
+    <arg name="ns"           default="camera" />
 
     <node pkg="yolov5_ros" name="detect" type="detect.py" output="screen" clear_params="true" ns="$(arg ns)">
         <rosparam file="$(arg config)"/>
