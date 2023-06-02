@@ -5,6 +5,9 @@ requests==2.27.1
 tqdm==4.64.1
 matplotlib==3.3.4
 opencv-python==4.5.1.48
+Pillow==9.5.0
+ipython==8.12.2
+psutil==5.9.5
 
 # Plotting ------------------------------------
 seaborn==0.11.2
