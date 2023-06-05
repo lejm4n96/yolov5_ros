@@ -1,0 +1,17 @@
+
+
+
+train: /content/train_data/train_data/images/train  #path of training images from train_data_folder
+val: /content/train_data/train_data/images/val      #path of validation images from train_data_folder
+
+# number of classes
+nc: 4
+
+# class names
+names: [ 'plastics', 'oil soot', 'ship', 'fumes']
+
+
+
+
+
+

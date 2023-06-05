@@ -1,6 +1,6 @@
 # Detection configuration
-weights:               "package://yolov5_ros/models/yolov5m.pt"
-data:                  "package://yolov5_ros/src/yolov5/data/coco128.yaml"
+weights:               "package://yolov5_ros/models/yolov5s_best_maritime_pollution.pt"
+data:                  "package://yolov5_ros/data/maritime_pollution.yaml"
 confidence_threshold:  0.75
 iou_threshold:         0.45
 maximum_detections:    1000
