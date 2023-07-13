@@ -3,11 +3,15 @@
     <arg name="config"       default="$(find yolov5_ros)/config/yolo.yaml" doc="Path to parameter config file"/>
     <arg name="topic_camera" default="color/image_raw"/>
     <arg name="ns"           default="camera" />
+    <arg name="weights"      default="yolov5m.pt" />
+    <arg name="data"         default="coco128.yaml" />
 
     <node pkg="yolov5_ros" name="detect" type="detect.py" output="screen" clear_params="true" ns="$(arg ns)">
         <rosparam file="$(arg config)"/>
         
         <param name="input_image_topic"  value="/$(arg ns)/$(arg topic_camera)"/>
+        <param name="weights" value="package://yolov5_ros/models/$(arg weights)" />
+        <param name="data" value="package://yolov5_ros/data/$(arg data)" />
     </node>
     <!-- <include file="$(find camera_launch)/launch/d435.launch"/> -->
 </launch>
